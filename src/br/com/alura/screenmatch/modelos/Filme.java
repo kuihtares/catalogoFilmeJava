@@ -1,6 +1,8 @@
 package br.com.alura.screenmatch.modelos;
 
-public class Filme extends Titulo {
+import br.com.alura.screenmatch.calculos.Classificavel;
+
+public class Filme extends Titulo implements Classificavel {
     private String direto;
 
     public String getDireto() {
@@ -9,5 +11,10 @@ public class Filme extends Titulo {
 
     public void setDireto(String direto) {
         this.direto = direto;
+    }
+
+    @Override
+    public int getClassificacao() {
+        return (int) retornaMedia() / 2;
     }
 }
