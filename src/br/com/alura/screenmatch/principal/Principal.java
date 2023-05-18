@@ -1,14 +1,16 @@
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
-        Filme filme1 = new Filme();
-        filme1.setNome("Star Wars: Episódio I – A Ameaça Fantasma");
-        filme1.setAnoDeLancamento(1999);
+        var filme1 = new Filme("Star Wars: Episódio II", 1999);
         filme1.setDuracaoEmMinutos(136);
         System.out.println("Duração do filme: " + filme1.getDuracaoEmMinutos());
 
@@ -19,15 +21,26 @@ public class Principal {
         System.out.println("Total de avaliações: " + filme1.getTotalDeAvaliacoes());
         System.out.println(filme1.retornaMedia());
 
-        Filme filme2 = new Filme();
-        filme2.setNome("Star Wars: Episódio II");
-        filme2.setAnoDeLancamento(2002);
+        var filme2 = new Filme("Star Wars: Episódio II", 2002);
         filme2.setDuracaoEmMinutos(140);
         System.out.println("Duração do filme: " + filme1.getDuracaoEmMinutos());
 
-        Serie serie = new Serie();
-        serie.setNome("Lost");
-        serie.setAnoDeLancamento(2000);
+        var filme3 = new Filme("Star Wars: Episódio III – A Vingança dos Sith", 2005);
+        filme3.setAnoDeLancamento(140);
+        filme3.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filme1);
+        listaDeFilmes.add(filme2);
+        listaDeFilmes.add(filme3);
+        System.out.println("Tamanho da lista " + listaDeFilmes.size());
+        System.out.println("Nome do primeiro filme" + listaDeFilmes.get(2).getNome());
+        System.out.println("toString do filme " + listaDeFilmes.get(0).toString());
+
+        filme3.toString();
+
+
+        Serie serie = new Serie("Lost", 2000);
         serie.exibeFichaTecnica();
         serie.setTemporadas(10);
         serie.setEpisodiosPorTemporada(10);
