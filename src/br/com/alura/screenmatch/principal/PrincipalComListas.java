@@ -4,13 +4,11 @@ import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Titulo;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.*;
 
 public class PrincipalComListas {
     public static void main(String[] args) {
-        var filme1 = new Filme("Star Wars: Episódio II", 1999);
+        var filme1 = new Filme("Star Wars: Episódio I", 1999);
         filme1.avalia(9);
 
         var filme2 = new Filme("Star Wars: Episódio II", 2002);
@@ -25,7 +23,7 @@ public class PrincipalComListas {
 
 
 
-        ArrayList<Titulo> lista = new ArrayList<>();
+        List<Titulo> lista = new LinkedList<>();
         lista.add(filme1);
         lista.add(filme2);
         lista.add(filme3);
@@ -48,5 +46,9 @@ public class PrincipalComListas {
         System.out.println(buscaPorArtista);
 
         Collections.sort(lista);
+        System.out.println(lista);
+        lista.sort(Comparator.comparing(Titulo::getAnoDeLancamento));
+        System.out.println("Ordendo por ano");
+        System.out.println(lista);
     }
 }
